@@ -1,0 +1,11 @@
+.wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: auto;
+    gap: 24px;
+    padding: 24px;
+    flex-wrap: wrap;
+    place-content: center;
+  }
+  
