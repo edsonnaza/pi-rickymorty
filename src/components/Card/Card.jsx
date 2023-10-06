@@ -1,4 +1,5 @@
 import classes from './Card.module.css';
+import { Link } from 'react-router-dom';
 export default function Card(props) {
    const closeHandler = (id) => {
     ///  console.log('close handler', id)
@@ -10,8 +11,8 @@ export default function Card(props) {
          <button className={classes['button']} onClick={() => closeHandler(props.id)}>X</button>
       
          <div className={classes['box-top']}>
-          
-            <h3 className={classes['box-title']}>{props.name}</h3>
+          <Link to={`/detail/${props.id}`}>
+            <h3 className={classes['box-title']}>{props.name}</h3></Link>
               
           
               <p className={classes['gender']}>{props.gender}</p>

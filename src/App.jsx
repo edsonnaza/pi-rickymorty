@@ -3,9 +3,20 @@ import './App.css';
 import Nav from './components/Layout/Nav';
 import Cards from './components/Cards/Cards';
 import ImgPrev from './components/ImgPrev/ImgPrev';
+import About from './views/About';
+import Detail from './views/Detail';
 import axios from 'axios';
- 
 
+//import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+// Importa los componentes necesarios de react-router-dom
+import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+
+// const router = createBrowserRouter([
+//   {path: '/home', element: <Cards />},
+//   {path: '/about',element:  <About />},
+//   {path: '/detail/:id', element: <Detail />}
+// ])
 
 function App() {
    const PreIMG_INIT = [{image:'',name:''}];
@@ -58,17 +69,25 @@ function App() {
        setCharacters(characters.filter((item)=>item.id!==Number(id)))
    }
 
-   return (
+   return (  
       <div className='App'>
+       
          <Nav onSearch={onSearch} onSearchPrevImg={onSearchPrevImg}  responseData={responseData} />
-         <br /><hr />
-         <Cards characters={characters} onClose={onClose}  />
+         <br />
+         <hr />
+         
+
+         <Routes>
+            <Route path='/' element={<Cards characters={characters} onClose={onClose} />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/detail/:id' element={<Detail />} />
+         </Routes>
          <br />
          <ImgPrev preImg={preImg} />
          <br />
         
          
-      </div>
+      </div> 
    );
 }
 
