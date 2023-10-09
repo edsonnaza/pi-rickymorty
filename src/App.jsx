@@ -3,6 +3,7 @@ import './App.css';
 import Nav from './components/Layout/Nav';
 import Cards from './components/Cards/Cards';
 import ImgPrev from './components/ImgPrev/ImgPrev';
+import Error from './views/Error';
 import About from './views/About';
 import Detail from './views/Detail';
 import axios from 'axios';
@@ -83,6 +84,7 @@ function App() {
             <Route path='/' element={<Cards characters={characters} onClose={onClose} />} />
             <Route path='/about' element={<About image={imageAbout} />} />
             <Route path='/detail/:id' element={<Detail />} />
+            <Route path='*' element={<Error />} />
          </Routes>
          <br />
          <ImgPrev preImg={preImg} />

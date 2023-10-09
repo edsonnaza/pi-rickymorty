@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
  
 
 const Nav = (props) => {
-console.log(props);
+ 
  
  
 
@@ -17,7 +17,7 @@ console.log(props);
           <li className={classes.li}> <Link to={'/About'}>  About </Link></li> </ul>
         
     {
-            !props.responseData && <p className={classes.response}>Character not found!</p>
+            !props.responseData && <div className={classes.response}>Character not found!</div>
          }
        <SearchBar onSearch={props.onSearch}   onSearchPrevImg={props.onSearchPrevImg}/>
         

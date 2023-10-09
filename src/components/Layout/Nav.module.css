@@ -1,5 +1,12 @@
 .response {
   color: azure;
+  margin-left: 40em;
+  color: #D8000C;
+  border: 1px solid;
+  padding: auto;
+  box-shadow: 1px 1px 1px #aaaaaa;
+	background-color: #FFBABA;
+		 
 } 
 
 .ul {
@@ -65,35 +72,4 @@
     object-fit: cover;
     transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
   }
-
-/* 
-@media (min-width: 640px) {
-  .input {
-    flex-basis: calc(50% - 12px);
-    align-items: center;
-  }
-  .content{
-    display: table-column-group;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .gender{
-    margin-top: 6px;
-  }
-  .header {
-    position:relative;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 5rem;
-    background-color: hsl(13, 86%, 23%);
-    color: white;
-    display: table-column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    z-index: 10;
-  }
-} */
+ 

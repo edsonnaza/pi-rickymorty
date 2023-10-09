@@ -33,7 +33,7 @@ const Detail = () =>{
     return (
              
               characters.map((item)=>( 
-              item.name &&
+              item.name &&  // checking if characters has data.
               <DetailItem 
                 key={item.id}
                 id={item.id}
