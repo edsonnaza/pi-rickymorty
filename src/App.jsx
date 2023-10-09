@@ -6,6 +6,7 @@ import ImgPrev from './components/ImgPrev/ImgPrev';
 import About from './views/About';
 import Detail from './views/Detail';
 import axios from 'axios';
+import imageAbout from './assets/rickymortyWallPaper.png';
 
 //import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -24,6 +25,7 @@ function App() {
    const [preImg, setPreImg]=useState(PreIMG_INIT);
    const [responseData,setResponseData]=useState(true);
    const miApiKey='pi-edsonnaza';
+   
    
 
    const onSearchPrevImg = (id) =>{
@@ -79,7 +81,7 @@ function App() {
 
          <Routes>
             <Route path='/' element={<Cards characters={characters} onClose={onClose} />} />
-            <Route path='/about' element={<About />} />
+            <Route path='/about' element={<About image={imageAbout} />} />
             <Route path='/detail/:id' element={<Detail />} />
          </Routes>
          <br />
