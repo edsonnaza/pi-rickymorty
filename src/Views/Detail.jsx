@@ -36,7 +36,7 @@ const Detail = () =>{
               <div key={item.id} className={classes.wrapper}>
 
               <div className={classes['product-img']}>
-                <img    src={item.image}  alt={item.name} />
+                <img className={classes.img}   src={item.image}  alt={item.name} />
               </div>
 
               <div className={classes['product-info']} >
