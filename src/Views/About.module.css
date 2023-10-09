@@ -6,14 +6,26 @@
   font-family: 'Poppins', sans-serif;
 }
 .about-us{
-  height: 100vh;
-  width: 100%;
-  padding: 90px 0;
-  background: #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: auto;
+    gap: 24px;
+    padding: 24px;
+    flex-wrap: wrap;
+    place-content: center;
+    height: 100vh;
+ 
+ 
+ 
 }
 .pic{
-  height: auto;
-  width:  302px;
+  height: 300px;
+  width:  502px;
+  border-radius: 10px;
+  flex:wrap;
+  margin-right: 20px;
+  flex-wrap: wrap;
 }
 .about{
   width: 1130px;
