@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Nav from './components/Layout/Nav';
 import Cards from './components/Cards/Cards';
@@ -8,26 +8,54 @@ import About from './views/About';
 import Detail from './views/Detail';
 import axios from 'axios';
 import imageAbout from './assets/rickymortyWallPaper.png';
+import Form from './components/Form/Form';
+ 
 
 //import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Importa los componentes necesarios de react-router-dom
-import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-
-// const router = createBrowserRouter([
-//   {path: '/home', element: <Cards />},
-//   {path: '/about',element:  <About />},
-//   {path: '/detail/:id', element: <Detail />}
-// ])
+import { useNavigate, Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
+ 
+ 
 
 function App() {
    const PreIMG_INIT = [{image:'',name:''}];
    const [characters, setCharacters] = useState([]);
+   const [logged, setLogged] = useState(false);
+   const [loginMessage, setLoginMessage] = useState(true);
    const [preImg, setPreImg]=useState(PreIMG_INIT);
    const [responseData,setResponseData]=useState(true);
    const miApiKey='pi-edsonnaza';
+   const EMAIL="user@gmail.com";
+   const PASSWORD="passWord123";
+   const navigate = useNavigate();
    
+
+   const onLogin = (userInput)=>{
+      setLoginMessage("");
+      if(userInput.password == PASSWORD && userInput.email === EMAIL){
+         console.log('loged successfully!');
+         setLogged(true);
+         navigate('/');
+      } else {
+         
+
+            setLoginMessage('User or password invalid, please try again!');
+         } 
+
+      }
+
+   const cleanLoginMessage= ()=>{
+      setLoginMessage('');
+   }
    
+   const logOut = ()=>{
+      setLogged(false);
+   }
+   
+   useEffect(()=>{
+       !logged && navigate('/login');
+    },[logged]);
 
    const onSearchPrevImg = (id) =>{
       setPreImg(PreIMG_INIT);
@@ -71,17 +99,30 @@ function App() {
       console.log('onClose',id);
        setCharacters(characters.filter((item)=>item.id!==Number(id)))
    }
-
+   const pathname = useLocation();
+   console.log(pathname);
    return (  
       <div className='App'>
        
-         <Nav onSearch={onSearch} onSearchPrevImg={onSearchPrevImg}  responseData={responseData} />
+      
+        { 
+       
+         <Nav  
+         logOut={logOut}
+         logged={logged} 
+         onSearch={onSearch} 
+         onSearchPrevImg={onSearchPrevImg}  
+         responseData={responseData} />
+       
+        
+        }  
          <br />
          <hr />
          
-
+          
          <Routes>
-            <Route path='/' element={<Cards characters={characters} onClose={onClose} />} />
+            <Route path='/login' element = {<Form onLogin={onLogin} loginMessage={loginMessage} cleanLoginMessage={cleanLoginMessage}/>} />
+            <Route path='/' element={<Cards characters={characters} onClose={onClose} logged={logged} />} />
             <Route path='/about' element={<About image={imageAbout} />} />
             <Route path='/detail/:id' element={<Detail />} />
             <Route path='*' element={<Error />} />

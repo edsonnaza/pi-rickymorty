@@ -1,13 +1,18 @@
 import Card from '../Card/Card';
 import classes from './Cards.module.css';
+import Bienvenido from '../Layout/Bienvenido';
 
 export default function Cards(props) {
    const data = props.characters;
+   console.log(data.length);
    //console.log(props.onClose);
-
-       return <div className={classes.wrap} >
-        
-        {
+   
+       return(  <div className={classes.wrap} >
+           
+          { 
+            !data.length && <Bienvenido />}
+          { 
+            
             data.map( (item)=>(
                 <Card 
                 key={item.id}
@@ -29,5 +34,5 @@ export default function Cards(props) {
 
          
      
-   </div>;
+   </div>);
 }
