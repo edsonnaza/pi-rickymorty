@@ -1,4 +1,4 @@
-import classes from './Card.module.css';
+import classes from './Card.module.scss';
 import { Link } from 'react-router-dom';
 export default function Card(props) {
    const closeHandler = (id) => {
@@ -20,8 +20,9 @@ export default function Card(props) {
               <p className={classes.description}>{props.species}</p>
                <p className={classes.description}>{props.status}</p>
              <p className={classes.description}>{props.origin}</p>
+         </div>   
          <img className={classes['box-image']} src={props.image} alt={props.name} />
-      </div>
+      
       </div>
      
    );

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import classes from './Form.module.css';
+import classes from './Form.module.scss';
 import image from  '../../assets/login.webp';
 const Form = (props) =>{
   const [userInput, setUserInput] = useState({
@@ -26,7 +26,11 @@ const Form = (props) =>{
   const validatePassword = (value)=> {
     const passwordInput = value;
     setError("");
-    var issueArr = [];
+    var issueArr = []; 
+    
+    if (!/^(?!\s*$).+/.test(passwordInput)) {
+      setError("Password can not be empty");
+    }
     if (!/^.{7,15}$/.test(passwordInput)) {
       setError("Password must be between 7-15 characters.");
     }
@@ -40,9 +44,7 @@ const Form = (props) =>{
       setError("Must contain an uppercase letter.");
     }
 
-    if (!/^(?!\s*$).+/.test(passwordInput)) {
-      setError("Can not be empty");
-    }
+   
     
     // if (issueArr.length > 0) {
     //     password.setCustomValidity(issueArr.join("\n"));
@@ -73,47 +75,52 @@ const Form = (props) =>{
 
    return ( 
 
-   <div className={classes.signupSection}>
-   <div className={classes.info}>
-  
+   <section className={classes.container}>
+       
+    <div className={classes.loginContainer} >
     
- 
-    <img className={classes.img} src={image}  alt='' />
-  </div>
-  <form    className={classes.signupForm} name="signupform">
-    <h2>Sign Up</h2>
-    <ul className={classes["noBullet"]}>
-      
-      <li>
-        <label htmlFor="email"></label>
-        <input type="email" 
-        className={classes.inputFields} 
-        id="email" 
-        name="email" 
-        placeholder="Email" 
-        value={userInput.email} 
-        onChange={handleChange} />
-      </li>
+      <div  className={classes.formContainer} >
+        <h2>Login</h2>
 
-      <li>
-        <label htmlFor="password"></label>
-        <input type="password" 
-        className={classes.inputFields} 
-        id="password" 
-        name="password" 
-        placeholder="Password" 
-        value={userInput.password} 
-        onChange={handleChange}/>
-      </li>
+        <div className={classes.imageContainer}>
+          <img className={classes.image} src={image} /> 
+        </div>
+       <form>
+          
+        
+            <label htmlFor="email"></label>
+            <input type="email" 
+            className={classes.inputFields} 
+            id="email" 
+            name="email" 
+            placeholder="Email" 
+            value={userInput.email} 
+            onChange={handleChange} />
+         
+
+          
+            <label htmlFor="password"></label>
+            <input type="password" 
+            className={classes.inputFields} 
+            id="password" 
+            name="password" 
+            placeholder="Password" 
+            value={userInput.password} 
+            onChange={handleChange}/>
+          
+        
+           
+            <button type='button'   disabled={error ? true : false} onClick={()=> props.onLogin(userInput)}  className={classes["join-btn"]} name="join" alt="Join"> Join </button>
      
-      <li className={classes["center-btn"]}>
-        <button type='button'   disabled={error ? true : false} onClick={()=> props.onLogin(userInput)}  className={classes["join-btn"]} name="join" alt="Join"> Join </button>
-      </li>
-    </ul>
-    {!error ? null : <div className={classes.errorMessage}> {error} </div>} 
-    {!props.loginMessage ? null : <div className={classes.loginMessage}>{props.loginMessage}</div>}
-  </form>
-</div>
+        </form>
+        {!error ? null : <div className={classes.errorMessage}> {error} </div>} 
+        {!props.loginMessage ? null : <div className={classes.loginMessage}>{props.loginMessage}</div>}
+      </div>
+      </div>
+       
+      
+      
+   </section>
 
     ) 
 }

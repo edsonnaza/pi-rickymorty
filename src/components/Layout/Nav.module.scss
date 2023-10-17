@@ -1,0 +1,116 @@
+
+
+ 
+  
+  .navContainer {
+  
+    min-height: 160px;
+    background-color: $black; // hsl(13, 86%, 23%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 35px 10px 90px ;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    
+
+    @include sm{
+      flex-direction: column;
+      padding: 25px 0px;
+      margin-top: 30px;
+    }
+
+    .logo{
+      flex:1;
+      height: 80px;
+
+      @include sm {
+        height: 45px;
+      }
+      
+
+      
+    }
+
+   
+    .secondSection {
+ 
+      display: flex;
+       
+      
+     
+
+      @include sm {
+        width: 100%;
+        margin-top: 12px;
+
+      }
+
+      .wrapperItems {
+      
+       gap: 5px;
+       
+      
+
+       .linknav {
+        
+       text-decoration: none;
+       color:inherit;
+       
+      }
+
+      .itemnav {
+        &:hover {
+          color: $secondary-color;
+        }
+        color: white;
+        font-size: large;
+ 
+        justify-content: center;    
+        padding: 16px 10px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       }
+    }
+
+   
+    }
+
+  
+
+
+ .thirdSection {
+   
+
+  display: flex;
+  gap: 1px;
+  
+ 
+
+.response {
+  margin-top: 20px;
+  height: 45px;
+  color: #D8000C;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 10px;
+  box-shadow: 1px 1px 1px #aaaaaa;
+  background-color: #FFBABA;
+}
+
+.searchbarDiv {
+  margin: 0 35px ; /* Agrega espacio entre los divs */
+}
+
+.logoutDiv {
+   
+ margin: 0px 2px;
+ 
+
+
+} 
+}
+
+
+}
+
+
+  

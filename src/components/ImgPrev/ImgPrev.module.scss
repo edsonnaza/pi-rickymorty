@@ -8,11 +8,20 @@
     filter: drop-shadow(0 0 5px rgb(2, 2, 133));
     position: absolute; /* Establece la imagen como posición absoluta */
     top: 90px; /* Coloca la imagen en la parte superior del contenedor */
-    right: 265px; /* Coloca la imagen en la parte izquierda del contenedor */
-    z-index: 1; /* Define el índice Z para asegurarte de que esté sobre otros elementos */
+    right: 195px; /* Coloca la imagen en la parte izquierda del contenedor */
+    z-index: 300; /* Define el índice Z para asegurarte de que esté sobre otros elementos */
   
    
- 
+    @include sm {
+     
+      margin-top: 90px;
+      left: 186px;
+
+    }
+
+    @include md {
+      left: 475px;
+    }
     
     
      

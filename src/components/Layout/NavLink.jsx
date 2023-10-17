@@ -1,11 +1,15 @@
-import classes from './Nav.module.css';
+ 
 import { Link } from 'react-router-dom';
 const NavLink = (props)=>{
-  return ( <ul className={classes.ul}>  
-    <li className={classes['li']}><Link to={'/'}> Home </Link></li>
-    <li className={classes.li}><Link to={'/About'}>About </Link></li> 
+
+  return ( 
+ <>
+   <Link to={'/'} className={props.linknav} > <span className={props.itemnav}>Home</span>  </Link>
+    <Link to={'/About'} className={props.linknav}><span className={props.itemnav}>About </span></Link> 
+ </>
+   
     
-  </ul>)
+  )
    
 }
 

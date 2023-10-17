@@ -1,5 +1,5 @@
 import Card from '../Card/Card';
-import classes from './Cards.module.css';
+import classes from './Cards.module.scss';
 import Bienvenido from '../Layout/Bienvenido';
 
 export default function Cards(props) {
@@ -7,7 +7,7 @@ export default function Cards(props) {
    console.log(data.length);
    //console.log(props.onClose);
    
-       return(  <div className={classes.wrap} >
+       return(  <div className={classes.cardsContainer} >
            
           { 
             !data.length && <Bienvenido />}

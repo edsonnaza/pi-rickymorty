@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './App.css';
+//import './App.css';
 import Nav from './components/Layout/Nav';
 import Cards from './components/Cards/Cards';
 import ImgPrev from './components/ImgPrev/ImgPrev';
@@ -26,8 +26,10 @@ function App() {
    const [preImg, setPreImg]=useState(PreIMG_INIT);
    const [responseData,setResponseData]=useState(true);
    const miApiKey='pi-edsonnaza';
-   const EMAIL="user@gmail.com";
-   const PASSWORD="passWord123";
+   // const EMAIL="user@gmail.com";
+   // const PASSWORD="passWord123";
+   const EMAIL="";
+   const PASSWORD="";
    const navigate = useNavigate();
    
 
@@ -100,9 +102,9 @@ function App() {
        setCharacters(characters.filter((item)=>item.id!==Number(id)))
    }
    const pathname = useLocation();
-   console.log(pathname);
+ 
    return (  
-      <div className='App'>
+      <div  >
        
       
         { 
@@ -117,7 +119,7 @@ function App() {
         
         }  
          <br />
-         <hr />
+        
          
           
          <Routes>

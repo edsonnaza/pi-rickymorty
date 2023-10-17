@@ -1,4 +1,4 @@
-import classes from './ImgPrev.module.css';
+import classes from './ImgPrev.module.scss';
 const ImgPrev = (props) =>{
    // console.log(props.preImg)
     return (

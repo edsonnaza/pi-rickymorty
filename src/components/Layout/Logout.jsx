@@ -1,4 +1,4 @@
-import classes from './Logout.module.css';
+import classes from './Logout.module.scss';
 const Logout = (props)=>{
 
     
@@ -6,15 +6,15 @@ const Logout = (props)=>{
         <div className={classes.container}>
           
           <hr />
-          <h3 className="heading">{'Hello Admin!'}</h3>
+          <h3 className="userName">{'Hello Admin!'}</h3>
           <hr />
           <div className="form_buttons">
-            <button 
+            <span 
             className={classes.btn}
             onClick={props.logOut}
             >
               Log Out
-            </button>
+            </span>
           </div>
         </div>)
     
