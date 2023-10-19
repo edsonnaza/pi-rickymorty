@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import classes from './Detail.module.css';
+import classes from './Detail.module.scss';
 import { useEffect, useState } from "react";
 import axios from "axios";
 
