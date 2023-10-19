@@ -21,15 +21,15 @@ import { useNavigate, Route, BrowserRouter as Router, Routes, useLocation } from
 function App() {
    const PreIMG_INIT = [{image:'',name:''}];
    const [characters, setCharacters] = useState([]);
-   const [logged, setLogged] = useState(false);
+   const [logged, setLogged] = useState(true);
    const [loginMessage, setLoginMessage] = useState(true);
    const [preImg, setPreImg]=useState(PreIMG_INIT);
    const [responseData,setResponseData]=useState(true);
    const miApiKey='pi-edsonnaza';
-   // const EMAIL="user@gmail.com";
-   // const PASSWORD="passWord123";
-   const EMAIL="";
-   const PASSWORD="";
+   const EMAIL="user@gmail.com";
+   const PASSWORD="passWord123";
+   // const EMAIL="";
+   // const PASSWORD="";
    const navigate = useNavigate();
    
 
@@ -89,7 +89,7 @@ function App() {
                setPreImg(PreIMG_INIT);
                
             } else {
-               window.alert('¡No hay personajes con este ID!'+ id);
+               window.alert('¡Character not found with the ID!'+ id);
             }
          }).catch(error =>console.log(error))     
 
