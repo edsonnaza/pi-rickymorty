@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Nav from './components/Layout/Nav';
 import Cards from './components/Cards/Cards';
 import ImgPrev from './components/ImgPrev/ImgPrev';
-import Error from './views/Error';
+import Error from "./views/Error";
 import About from './views/About';
 import Detail from './views/Detail';
 import axios from 'axios';

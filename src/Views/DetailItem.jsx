@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import classes from './Detail.module.css';
+import classes from './Detail.module.scss';
 const DetailItem = (props) =>{
 
     return (
