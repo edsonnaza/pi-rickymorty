@@ -107,7 +107,7 @@ function App() {
       <div  >
        
       
-        { 
+        { logged &&
        
          <Nav  
          logOut={logOut}
