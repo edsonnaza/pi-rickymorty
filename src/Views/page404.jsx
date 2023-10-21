@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import classes from '../views/Error.module.scss';
+import classes from '../views/page404.module.scss';
 const Error = () =>{
 
     return (

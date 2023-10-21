@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Nav from './components/Layout/Nav';
 import Cards from './components/Cards/Cards';
 import ImgPrev from './components/ImgPrev/ImgPrev';
-import Error from './views/Error';
+import Page404 from './views/page404';
 import About from './views/About';
 import Detail from './views/Detail';
 import axios from 'axios';
@@ -127,7 +127,7 @@ function App() {
             <Route path='/' element={<Cards characters={characters} onClose={onClose} logged={logged} />} />
             <Route path='/about' element={<About image={imageAbout} />} />
             <Route path='/detail/:id' element={<Detail />} />
-            <Route path='*' element={<Error />} />
+            <Route path='*' element={<Page404 />} />
          </Routes>
          <br />
          <ImgPrev preImg={preImg} />
