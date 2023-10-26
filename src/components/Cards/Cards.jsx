@@ -4,8 +4,7 @@ import Bienvenido from '../Layout/Bienvenido';
 
 export default function Cards(props) {
    const data = props.characters;
-   console.log(data.length);
-   //console.log(props.onClose);
+   
    
        return(  <div className={classes.cardsContainer} >
            

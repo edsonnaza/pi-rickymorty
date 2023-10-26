@@ -6,14 +6,11 @@ import ImgPrev from './components/ImgPrev/ImgPrev';
 import Page404 from './views/page404';
 import About from './views/About';
 import Detail from './views/Detail';
+import FavoritesChar from './components/favorites/FavoritesChar';
 import axios from 'axios';
 import imageAbout from './assets/rickymortyWallPaper.png';
 import Form from './components/Form/Form';
- 
-
-//import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
-// Importa los componentes necesarios de react-router-dom
+import { miApiKey, EMAIL,PASSWORD } from './util/loginValidation';
 import { useNavigate, Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
  
  
@@ -25,9 +22,8 @@ function App() {
    const [loginMessage, setLoginMessage] = useState(true);
    const [preImg, setPreImg]=useState(PreIMG_INIT);
    const [responseData,setResponseData]=useState(true);
-   const miApiKey='pi-edsonnaza';
-   const EMAIL="user@gmail.com";
-   const PASSWORD="passWord123";
+  
+  
    // const EMAIL="";
    // const PASSWORD="";
    const navigate = useNavigate();
@@ -80,7 +76,7 @@ function App() {
       
    }
    const onSearch = (id)=> {
-        //console.log(id);
+       
 
         axios(`https://rym2.up.railway.app/api/character/${id}?key=${miApiKey}`).then(
          ({ data }) => {
@@ -119,12 +115,11 @@ function App() {
         
         }  
          <br />
-        
-         
-          
+       
          <Routes>
             <Route path='/login' element = {<Form onLogin={onLogin} loginMessage={loginMessage} cleanLoginMessage={cleanLoginMessage}/>} />
             <Route path='/' element={<Cards characters={characters} onClose={onClose} logged={logged} />} />
+            <Route path='/favorites' element={<FavoritesChar characters={characters} onClose={onClose} logged={logged} />} />
             <Route path='/about' element={<About image={imageAbout} />} />
             <Route path='/detail/:id' element={<Detail />} />
             <Route path='*' element={<Page404 />} />

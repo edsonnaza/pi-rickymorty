@@ -24,6 +24,12 @@
       justify-items: center;
       align-self: center;
     }
+
+    @include md {
+      margin-inline-end: 25px;
+    margin-inline-start: 25px;
+    border-radius: 12px; 
+    }
 }
 .pic{
   height: 300px;
@@ -43,11 +49,21 @@
     margin-inline-start: 20px;
      
   }
+  @include md {
+     
+    width:200px ;
+    height:160px ;
+    gap: 2px;
+    margin-top: 20px;
+    align-self: center;
+ 
+  }
   
 }
 .about{
   width:600px;
   height: 450px;
+
  
   display: flex;
   
