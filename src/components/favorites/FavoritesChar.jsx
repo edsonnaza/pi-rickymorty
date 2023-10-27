@@ -1,17 +1,24 @@
 import Cards from '../Cards/Cards';
 import { useSelector,useDispatch } from 'react-redux';
-import classes from './FavoritesChar.module.scss'
+import classes from './FavoritesChar.module.scss';
+import FilterChars from '../filter/filterChars';
 
 const FavoritesChar = (props) => {
     const myFavorites = useSelector((state)=>state.myFavorites);
 
-    return ( < >
-    {!myFavorites.length && <h1><center>No favorite characters were selected!</center></h1>}
+    return ( < div>
+
+    
+    
+    {!myFavorites.length && <h1  ><center className={classes.h1}>No favorite characters were selected!</center></h1>}
      { myFavorites.length && <h2><center>My Favorite Characters</center></h2> }
 
-     
+ 
+    
       
       {myFavorites && 
+
+       <FilterChars /> &&
         
        <Cards 
        characters={myFavorites} 
@@ -21,7 +28,7 @@ const FavoritesChar = (props) => {
 
 
 
-           </>
+           </div>
     )
 }
 

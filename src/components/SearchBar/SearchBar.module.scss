@@ -1,47 +1,44 @@
-
 .searchBar {
- background-color: white;
- position: relative;
- width: 185px;
- height: 45px;
- display:flex;
- align-items: center;
- border-radius: 14px;
+  background-color: white;
+  position: relative;
+  width: 200px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  border-radius: 14px;
 
- input {
-  padding-left:10px;
-  border:none;
-  background-color: inherit;
-
-  &:focus{
-    outline: none;
+  @include md {
+    margin-top: 5px;
   }
 
- }
 
- .searchbutton{
-  cursor:pointer;
-  position:absolute;
-  border: none;
-  background-color: inherit;
-  right: 0;
-  
- }
 
- .icono {
-  width: 26px;
+  input {
+    padding-left: 10px;
+    border: none;
+    background-color: inherit;
+
+    &:focus {
+      outline: none;
+    }
+
+
+  }
+
+  .searchbutton {
+    cursor: pointer;
+    position: absolute;
+    border: none;
+    background-color: inherit;
+    right: 0;
+
+  }
+
+  .icono {
+    width: 26px;
+    padding: 0px 8px 0px 0px;
+
+  }
    
-   
-  padding: 0px 8px 0px 0px;
-  
- 
-
- }
- 
- 
-
-  
 
 }
-
- 

@@ -1,6 +1,5 @@
 import axios from 'axios';
-import {useState} from 'react';
-import { miApiKey, EMAIL,PASSWORD, } from '../util/loginValidation';
+import { miApiKey } from '../util/loginValidation';
 export const onSearch = (id)=> {
 const [characters, setCharacters] = useState([]);
 axios(`https://rym2.up.railway.app/api/character/${id}?key=${miApiKey}`).then(

@@ -1,5 +1,11 @@
-import { ADD_FAV, REMOVE_FAV, COUNT_NUMBER } from "./actions-types";
+import { ADD_FAV, REMOVE_FAV, ORDER_FAV, FILTER_FAV_BYGENDER,ALL, DELETE_CHARACTER } from "./actions-types";
 
+export const allCharacters = (character) =>{
+    return {
+        type:ALL,
+        payload:character,
+    }
+}
 export const addFav = (character) => {
     return {
         type:ADD_FAV,
@@ -14,8 +20,24 @@ export const removeFav = (id) => {
     };
 };
 
-export const countNumber = () =>{
+ 
+
+export const filterCardsByGender = (gender) => {
     return {
-        type: COUNT_NUMBER,
+      type: FILTER_FAV_BYGENDER,
+      payload: gender,
+    };
+  };
+  
+  export const orderCards = (orden) => {
+    return {
+      type: ORDER_FAV,
+      payload: orden,
+    };
+  };
+export const deleteCharacter = (id) =>{
+    return {
+        type: DELETE_CHARACTER,
+        payload:id,
     }
 }

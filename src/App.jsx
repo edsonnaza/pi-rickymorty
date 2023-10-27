@@ -12,7 +12,8 @@ import imageAbout from './assets/rickymortyWallPaper.png';
 import Form from './components/Form/Form';
 import { miApiKey, EMAIL,PASSWORD } from './util/loginValidation';
 import { useNavigate, Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
- 
+import { useSelector, useDispatch } from 'react-redux';
+import { allCharacters,deleteCharacter } from './redux/actions';
  
 
 function App() {
@@ -22,10 +23,10 @@ function App() {
    const [loginMessage, setLoginMessage] = useState(true);
    const [preImg, setPreImg]=useState(PreIMG_INIT);
    const [responseData,setResponseData]=useState(true);
+   const [errBarMessage, setErrBarMessage]=useState('');
+
+   const dispatch = useDispatch();
   
-  
-   // const EMAIL="";
-   // const PASSWORD="";
    const navigate = useNavigate();
    
 
@@ -67,6 +68,7 @@ function App() {
                if(id!==Number(0))
                {  console.log(preImg.name);
                   setResponseData(false);
+                  setErrBarMessage('Character not found!')
                   
                
                }
@@ -76,16 +78,27 @@ function App() {
       
    }
    const onSearch = (id)=> {
-       
+     
+      const exists = characters.find(char => char.id === Number(id));
+
+      if(exists) {
+        setResponseData(false);
+        setErrBarMessage('The character has been added already!');
+        setPreImg([{image:'',name:''}]);
+        return; 
+      }
 
         axios(`https://rym2.up.railway.app/api/character/${id}?key=${miApiKey}`).then(
          ({ data }) => {
             if (data.name) {
                setCharacters((oldChars) => [...oldChars, data]);
+               dispatch(allCharacters(data));
                setPreImg(PreIMG_INIT);
                
             } else {
-               window.alert('¡Character not found with the ID!'+ id);
+               setResponseData(false);
+               setErrBarMessage(`Id not found: ${id}`);
+              // window.alert('¡Character not found with the ID!'+ id);
             }
          }).catch(error =>console.log(error))     
 
@@ -94,8 +107,9 @@ function App() {
    
 
    const onClose = (id) => {
-      console.log('onClose',id);
-       setCharacters(characters.filter((item)=>item.id!==Number(id)))
+       
+       setCharacters(characters.filter((item)=>item.id!==Number(id)));
+       dispatch(deleteCharacter(id));
    }
    const pathname = useLocation();
  
@@ -110,7 +124,8 @@ function App() {
          logged={logged} 
          onSearch={onSearch} 
          onSearchPrevImg={onSearchPrevImg}  
-         responseData={responseData} />
+         responseData={responseData} 
+         errBarMessage={errBarMessage}/>
        
         
         }  

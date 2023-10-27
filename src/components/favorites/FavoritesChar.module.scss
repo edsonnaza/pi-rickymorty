@@ -8,7 +8,7 @@
 
   }
 
- h1 {
+ .h1 {
         
         
         font-display: center;
@@ -16,6 +16,10 @@
         align-items: center;
         margin-top: -15px;
         margin-bottom: 5px;
+
+        @include sm {
+          font-size: x-large
+        }
       
          
       }
